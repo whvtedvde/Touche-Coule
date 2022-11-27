@@ -12,6 +12,8 @@ struct Game {
   mapping(uint => int) ys;
 }
 
+
+
 contract Main {
   Game private game;
   uint private index;
@@ -36,7 +38,12 @@ contract Main {
     emit Size(game.width, game.height);
   }
 
-  function register(address ship) external {
+
+
+  function register() external {
+    myShip Ship1 = new myShip();
+    address ship;
+    ship = address(Ship1);
     require(count[msg.sender] < 2, 'Only two ships');
     require(!used[ship], 'Ship alread on the board');
     require(index <= game.height * game.width, 'Too much ship on board');
@@ -49,6 +56,17 @@ contract Main {
     used[ship] = true;
     index += 1;
   }
+
+
+//added
+
+  
+
+
+
+
+//
+
 
   function turn() external {
     bool[] memory touched = new bool[](index);

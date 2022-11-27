@@ -32,6 +32,21 @@ const config: HardhatUserConfig = {
   typechain: {
     outDir: '../typechain',
   },
+
+//added
+
+defaultNetwork: "hardhat",
+ networks: {
+  hardhat: {
+   allowUnlimitedContractSize: true,
+   blockGasLimit: 0x1fffffffffffff
+  }
+ },
+
+
+
+//
+
 }
 
 export default config
